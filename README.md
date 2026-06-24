@@ -12,12 +12,30 @@ The primary empirical objective is to map out the interconnected symptom structu
 ## Repository Structure
 ```text
 ├── scripts/
-│   └── bayesian_psychometric_network.R  # Core analytical pipeline (Data prep, Frequentist, Bayes)
+│   └── bayesian_psychometric_network.R  # Core analytical pipeline
 └── output/
-    ├── frequentist_network.png          # EBICglasso regularized symptom network
-    ├── centrality_plot.png             # Node Strength hierarchy analysis
-    └── bayesian_network.png             # Bayesian posterior parameters network
+    ├── frequentist_network.png          # EBICglasso symptom network
+    ├── centrality_plot.png             # Node Strength hierarchy
+    └── bayesian_network.png             # Bayesian parameters network
 ```
+
+---
+
+## Network Visualizations
+
+### 1. Frequentist Regularized Network vs. Bayesian Parameters Network
+Below is the side-by-side topographic comparison of the clinical symptom networks. The nodes are split into Depression (Pastel Red) and OCD (Pastel Blue).
+
+| Frequentist Network (`EBICglasso`) | Bayesian Network (`MCMC Parameters`) |
+| :---: | :---: |
+| <img src="output/frequentist_network.png" width="400" alt="Frequentist Network"> | <img src="output/bayesian_network.png" width="400" alt="Bayesian Network"> |
+
+### 2. Node Centrality Hierarchy
+The following plot details the Node Strength index from the frequentist estimation, highlighting the primary statistical drivers of the system.
+
+<p align="center">
+  <img src="output/centrality_plot.png" width="500" alt="Centrality Plot">
+</p>
 
 ---
 
@@ -64,3 +82,4 @@ install.packages(c("MPsychoR", "bootnet", "qgraph", "easybgm", "bgms", "dplyr"))
 # Run the analytical script
 source("scripts/bayesian_psychometric_network.R")
 ```
+
